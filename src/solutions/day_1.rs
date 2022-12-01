@@ -8,7 +8,7 @@ pub fn run_first() -> Result<(), Box<dyn std::error::Error>>  {
 
     let file = File::open("./inputs/day_1/first.txt")
         .expect("file not found!");
-    let  buf_reader = BufReader::new(file);
+    let buf_reader = BufReader::new(file);
 
     for line in buf_reader.lines() {
         let unwrapped_line = line?;
@@ -43,7 +43,7 @@ pub fn run_second() -> Result<(), Box<dyn std::error::Error>>  {
 
     let file = File::open("./inputs/day_1/second.txt")
         .expect("file not found!");
-    let  buf_reader = BufReader::new(file);
+    let buf_reader = BufReader::new(file);
 
     for line in buf_reader.lines() {
         let unwrapped_line = line?;
