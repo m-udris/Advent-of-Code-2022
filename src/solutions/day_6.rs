@@ -12,7 +12,7 @@ fn run_task(input: &str, window_size: usize) -> Result<usize, Box<dyn std::error
     if let Some(input_line) = buf_reader.lines().next() {
         let unwrapped_line = input_line?;
         let chars_vec = unwrapped_line.chars().collect::<Vec<char>>();
-        let a = chars_vec.windows(window_size).enumerate().find(|(_index, window)| Vec::<char>::from(*window).into_iter().unique().collect::<Vec<char>>().len() == window_size);
+        let a = chars_vec.windows(window_size).enumerate().find(|(_index, window)| window.into_iter().unique().count() == window_size);
         if let Some((index, _)) = a {
             return Ok(index + window_size);
         }
