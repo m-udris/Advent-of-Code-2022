@@ -68,12 +68,12 @@ pub fn run_second() -> Result<(), Box<dyn std::error::Error>> {
             }
             let column = matrix.iter().map(|row_vec| row_vec[column_index]).collect::<Vec<u32>>();
 
-            let tallest_tree_left = row[..column_index].iter().rev().position(|height| height >= element).unwrap_or(row[..column_index].len() - 1) + 1;
-            let tallest_tree_right = row[column_index + 1..].iter().position(|height| height >= element).unwrap_or(row[column_index + 1..].len() - 1) + 1;
-            let tallest_tree_up = column[..row_index].iter().rev().position(|height| height >= element).unwrap_or(column[..row_index].len() - 1) + 1;
-            let tallest_tree_down = column[row_index + 1..].iter().position(|height| height >= element).unwrap_or(column[row_index + 1..].len() - 1) + 1;
+            let visibility_left = row[..column_index].iter().rev().position(|height| height >= element).unwrap_or(row[..column_index].len() - 1) + 1;
+            let visibility_right = row[column_index + 1..].iter().position(|height| height >= element).unwrap_or(row[column_index + 1..].len() - 1) + 1;
+            let visibility_up = column[..row_index].iter().rev().position(|height| height >= element).unwrap_or(column[..row_index].len() - 1) + 1;
+            let visibility_down = column[row_index + 1..].iter().position(|height| height >= element).unwrap_or(column[row_index + 1..].len() - 1) + 1;
 
-            let scenic_score = tallest_tree_left * tallest_tree_right * tallest_tree_up * tallest_tree_down;
+            let scenic_score = visibility_left * visibility_right * visibility_up * visibility_down;
 
             if scenic_score > max_scenic_score {
                 max_scenic_score = scenic_score;
