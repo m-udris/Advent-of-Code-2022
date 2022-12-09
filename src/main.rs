@@ -2,7 +2,7 @@ mod solutions;
 use crate::solutions::*;
 
 fn main() {
-    let problem = "8_2";
+    let problem = "9_2";
 
     match problem {
         "1_1" => day_1::run_first().unwrap(),
@@ -21,6 +21,8 @@ fn main() {
         "7_2" => day_7::run_second().unwrap(),
         "8_1" => day_8::run_first().unwrap(),
         "8_2" => day_8::run_second().unwrap(),
+        "9_1" => day_9::run_first().unwrap(),
+        "9_2" => day_9::run_second().unwrap(),
         _ => println!("No such solution found."),
     };
 

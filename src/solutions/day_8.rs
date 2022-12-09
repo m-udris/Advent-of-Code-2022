@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::BufReader;
 use std::io::prelude::*;
-use std::iter::zip;
 
 fn get_matrix(input_filename: &str) -> Result<Vec<Vec<u32>>, Box<dyn std::error::Error>> {
     let file = File::open(input_filename)
