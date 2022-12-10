@@ -80,7 +80,7 @@ fn handle_crt(
 
     if *cycle_count == cycle_lap_size {
         println!("{}", buffer.iter().collect::<String>());
-        *buffer = vec!['.'; cycle_lap_size];
+        *buffer = vec![' '; cycle_lap_size];
         *cycle_count %= cycle_lap_size;
     }
 }
@@ -90,7 +90,7 @@ pub fn run_second() -> Result<(), Box<dyn std::error::Error>> {
     const ADDX_CYCLE_COUNT: isize = 2;
     const CYCLE_LAP_SIZE: usize = 40;
 
-    let mut buffer: Vec<char> = vec!['.'; CYCLE_LAP_SIZE];
+    let mut buffer: Vec<char> = vec![' '; CYCLE_LAP_SIZE];
 
     let mut reg_x_value: isize = 1;
     let mut cycle_count: usize = 0;
